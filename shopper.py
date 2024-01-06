@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver.chromium.options import ChromiumOptions
 from selenium.webdriver.support.wait import WebDriverWait
 from random import *
@@ -103,6 +103,8 @@ for item in aznList:
     except AttributeError:
         print("Error searching for ",item)
         exit()
+    except ElementNotInteractableException:
+        driver.find_element(By.LINK_TEXT,"Add to Cart").click()
 
     currItem = driver.find_element(By.ID,"add-to-cart-button")
     currItem.click()
