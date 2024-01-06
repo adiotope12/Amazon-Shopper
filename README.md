@@ -8,4 +8,5 @@ This is a program I created using the Selenium Webdriver that takes in items to 
 
 
 https://github.com/adiotope12/Amazon-Shopper/assets/149920417/af8d473d-b648-4329-b32d-cdbf3b4fb8f3
+
 I started with 9 item from previous tests, then the program added the three items I inputed.
