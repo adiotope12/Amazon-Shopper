@@ -11,7 +11,7 @@ def addItems():
     item :str = ""
     List = []
 
-    print("Type what you would like to purchase then press Enter\nType the same item twice to remove it\nEnter 'done' to start shopping")
+    print("Type what you would like to purchase then press Enter\nType the same item twice to remove it\nEnter 'done' to start shopping\n")
     while (item != "done"):
         while True:
             try:
@@ -28,14 +28,14 @@ def addItems():
                 break
             except TypeError:
                 print("Invalid Input\n")
-                print("Type what you would like to purchase then press Enter\nEnter 'done' to start shopping")
+                print("Type what you would like to purchase then press Enter\nType the same item twice to remove it\nEnter 'done' to start shopping\n")
 
-    print("Would you like to start shopping?\nEnter 'yes' or 'no'")
+    print("Would you like to start shopping?\nEnter 'yes' or 'no'\n")
     ans = input()
     while (ans != 'yes'):
         if (ans != 'no'):
             print("Invalid Input\n")
-            print("Would you like to start shopping?\nEnter 'yes' or 'no'")
+            print("Would you like to start shopping?\nEnter 'yes' or 'no'\n")
             ans = input()
         elif ans == 'no':
             List = List + addItems()
@@ -97,20 +97,20 @@ for item in aznList:
     currItem.click()
 
     currItem = skipSponsored(driver)
-    print(currItem)
     try:
         currItem.click()
     except AttributeError:
         print("Error searching for ",item)
         exit()
     except ElementNotInteractableException:
-        driver.find_element(By.LINK_TEXT,"Add to Cart").click()
+        driver.find_element(By.ID,"a-autoid-1-announce").click()
+        continue
 
     currItem = driver.find_element(By.ID,"add-to-cart-button")
     currItem.click()
 
 
-cart = driver.find_element(By.NAME,"proceedToRetailCheckout")
+cart = driver.find_element(By.ID,"nav-cart-count")
 cart.click()
 
 
