@@ -113,7 +113,7 @@ for item in aznList:
 cart = driver.find_element(By.ID,"nav-cart-count")
 cart.click()
 
-driver.implicitly_wait(300)
+sleep(300)
 driver.quit()
 
 
